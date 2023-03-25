@@ -1,9 +1,10 @@
-const path = require('path');
 
 
 const usersController = {
     createUser: (req, res) => {
-        res.send("Create User POST");
+        let user = req.body;
+        const { usuario, contraseña } = user;
+        res.send(usuario + contraseña);
     },
     login: (req, res) =>  {
         res.send("Login POST");

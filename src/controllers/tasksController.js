@@ -1,8 +1,20 @@
-const path = require('path');
+const tasksOp = require('../modules/tasksOp');
 
 const tasksController = {
     createTask: (req, res) => {
-        res.send("Create Task POST");
+        return res.render('./tasks/createTaskForm.ejs');
+    },
+    processCreateTask: (req, res) => {
+        const { title, description } = req.body;
+        
+        const task = {
+            title,
+            description
+        };
+
+        tasksOp.addTask(task);
+
+        res.send();
     },
     getTasks: (req, res) =>  {
         res.send("Get tasks GET");
