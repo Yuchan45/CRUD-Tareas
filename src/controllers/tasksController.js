@@ -17,7 +17,8 @@ const tasksController = {
             title,
             description,
             completed: false,
-            creationDate: date.format('MMMM Do YYYY, h:mm:ss a')
+            creationDate: date.format('MMMM Do YYYY, h:mm:ss a'),
+            updatedDate:  date.format('MMMM Do YYYY, h:mm:ss a')
         };
 
         if (!tasksOp.addTask(task)) return res.status(500).send("Error al crear la tarea.");
@@ -39,14 +40,10 @@ const tasksController = {
     },
     completeTask: (req, res) => {
         const id = req.params.id;
-        
-        const task = tasksOp.getTaskById(id);
-        if (!task) return res.status(404).send("No se ha hallado la tarea coincidente con dicho id.");
 
-        task.completed = true;
-        tasksOp.writeTasks();
+        if (!tasksOp.setTaskToCompleted(id)) return res.status(404).send("Task Not Found.");
 
-        res.status(200).send(task);
+        return res.status(200).send("Task set to completed successfully.");
     }
 };
 

@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+const moment = require('moment');
+const date = moment();
 
 const tasksOp = {
     file: path.resolve(__dirname, '../data/tasks.json'),
@@ -43,20 +45,22 @@ const tasksOp = {
         return true;
     },
 
-    getTaskById: function(id) {
-        // Recibe un id. Busca la tarea cuyo id coinicide.
-
-        let tasksJSON = JSON.parse(fs.readFileSync(this.file));
-        const task = tasksJSON.find(task => task.id === id);
-
-        return task;
-    },
-
     setTaskToCompleted: function(id) {
         // Recibe un id. Busca la tarea cuyo id coinicide y establece su atributo 'completed' a true.
         let tasksJSON = JSON.parse(fs.readFileSync(this.file));
         const task = tasksJSON.find(task => task.id === id);
+        if (!task) return false;
 
+        const updatedTask = {
+            ...task,
+            completed: true,
+            updatedDate: date.format('MMMM Do YYYY, h:mm:ss a')
+        }
+
+        if (!this.removeTask(id)) return res.status(500).send("Error al establecer tarea a completado (al remover tarea previa)");
+        if (!this.addTask(updatedTask)) return res.status(500).send("Error al establecer tarea a completado. (al agrega tarea actualizada)");
+
+        return true;
     }
 
 
