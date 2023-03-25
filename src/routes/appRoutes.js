@@ -4,7 +4,7 @@ const usersController = require('../controllers/usersController');
 const tasksController = require('../controllers/tasksController');
 
 const { createUser, login } = usersController;
-const { createTask, processCreateTask, getTasks, deleteTaks, completeTask } = tasksController;
+const { createTask, processCreateTask, getTasks, deleteTasks, completeTask } = tasksController;
 
 
 // User Routes
@@ -16,7 +16,8 @@ router.get('/task', createTask);
 router.post('/task', processCreateTask);
 
 router.get('/tasks', getTasks);
-router.delete('/task/:id', deleteTaks);
+
+router.delete('/task/:id', deleteTasks);
 router.put('/task/:id', completeTask);
 
 

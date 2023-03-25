@@ -16,22 +16,32 @@ const tasksController = {
             id,
             title,
             description,
+            completed: false,
             creationDate: date.format('MMMM Do YYYY, h:mm:ss a')
         };
 
-        if (!tasksOp.addTask(task)) res.status(500);
+        if (!tasksOp.addTask(task)) res.status(500).send("Error al crear la tarea.");
 
-        res.status(201).send(id);
+        res.status(201).send("ID: " + id);
 
     },
     getTasks: (req, res) =>  {
-        res.send("Get tasks GET");
+        const tasks = tasksOp.readTasks();
+        if (!tasks) return res.status(500).send("Error al cargar la tareas");
+
+        res.status(200).send(tasks);
     },
-    deleteTaks: (req, res) => {
+    deleteTasks: (req, res) => {
         res.send("Delete task DELETE");
     },
     completeTask: (req, res) => {
-        res.send("Compelete task PUT");
+        const id = req.params.id;
+        
+        const task = tasksOp.getTaskById(id);
+        if (!task) res.status(404).send("No se ha hallado la tarea coincidente con dicho id.");
+        task.completed = true;
+
+        res.status(200).send(task);
     }
 };
 

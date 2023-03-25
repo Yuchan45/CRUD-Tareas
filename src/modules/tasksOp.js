@@ -17,21 +17,30 @@ const tasksOp = {
         const dataJSON = JSON.stringify(array, null, "\t");
         fs.writeFileSync(file, dataJSON, 'utf-8', function(error) {
             if (error) throw error;
-            console.log('Ha ocurrido un error al intentar guardar la tarea');
+            return false;
         });
+        return true;
     },
 
     addTask: function(task) {
         // Recibe una tarea y lo agrega al array de tareas. Devuelve 0 en caso de exito y -1 en caso de error.
-        if (!task) return -1;
+        if (!task) return false;
         
         const tasksArray = this.readTasks(this.file);
         tasksArray.push(task);
-        this.writeTasks(tasksArray, this.file);
+        if (!this.writeTasks(tasksArray, this.file)) return false;
 
-        return 0;
+        return true;
     },
 
+    getTaskById: function(id) {
+        // Recibe un id. Busca la tarea cuyo id coinicide.
+
+        let tasksJSON = JSON.parse(fs.readFileSync(this.file));
+        const task = tasksJSON.find(task => task.id === id);
+        
+        return task;
+    }
 
 
 };
