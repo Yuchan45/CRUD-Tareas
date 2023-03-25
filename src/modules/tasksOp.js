@@ -6,16 +6,16 @@ const tasksOp = {
 
     readTasks: function() {
         // Lee el archivo de tareas y devuelve el array de objetos 'tarea' en este.
-        if (!fs.existsSync(this.file)) this.writeTasks([], this.file);
+        if (!fs.existsSync(this.file)) this.writeTasks([]);
 
         let tasksJSON = JSON.parse(fs.readFileSync(this.file));
         return tasksJSON;
     },
 
-    writeTasks: function(array, file) {
-        // Recibe un array de tareas y la ubicacion del archivo a escribir. Escribe el array en el archivo.
+    writeTasks: function(array) {
+        // Recibe un array de tareas. Escribe el array en el archivo.
         const dataJSON = JSON.stringify(array, null, "\t");
-        fs.writeFileSync(file, dataJSON, 'utf-8', function(error) {
+        fs.writeFileSync(this.file, dataJSON, 'utf-8', function(error) {
             if (error) throw error;
             return false;
         });
@@ -28,8 +28,18 @@ const tasksOp = {
         
         const tasksArray = this.readTasks(this.file);
         tasksArray.push(task);
-        if (!this.writeTasks(tasksArray, this.file)) return false;
+        if (!this.writeTasks(tasksArray)) return false;
 
+        return true;
+    },
+
+    removeTask: function(id) {
+        // Recibe id. Elimina la tarea del archivo cuyo id coincide con el pasado por parametro.
+        if (!id) return false;
+        let tasksJSON = JSON.parse(fs.readFileSync(this.file));
+        const tasks = tasksJSON.filter(task => task.id !== id);
+
+        if (!this.writeTasks(tasks)) return false;
         return true;
     },
 
@@ -38,8 +48,15 @@ const tasksOp = {
 
         let tasksJSON = JSON.parse(fs.readFileSync(this.file));
         const task = tasksJSON.find(task => task.id === id);
-        
+
         return task;
+    },
+
+    setTaskToCompleted: function(id) {
+        // Recibe un id. Busca la tarea cuyo id coinicide y establece su atributo 'completed' a true.
+        let tasksJSON = JSON.parse(fs.readFileSync(this.file));
+        const task = tasksJSON.find(task => task.id === id);
+
     }
 
 
