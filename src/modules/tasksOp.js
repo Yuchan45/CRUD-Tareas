@@ -22,10 +22,14 @@ const tasksOp = {
     },
 
     addTask: function(task) {
-        // Recibe una tarea y lo agrega al array de tareas.
+        // Recibe una tarea y lo agrega al array de tareas. Devuelve 0 en caso de exito y -1 en caso de error.
+        if (!task) return -1;
+        
         const tasksArray = this.readTasks(this.file);
         tasksArray.push(task);
         this.writeTasks(tasksArray, this.file);
+
+        return 0;
     },
 
 

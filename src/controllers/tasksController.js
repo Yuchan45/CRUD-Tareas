@@ -1,3 +1,7 @@
+const { v4: uuidv4 } = require('uuid');
+const moment = require('moment');
+const date = moment();
+
 const tasksOp = require('../modules/tasksOp');
 
 const tasksController = {
@@ -6,15 +10,19 @@ const tasksController = {
     },
     processCreateTask: (req, res) => {
         const { title, description } = req.body;
-        
+        const id = uuidv4();
+
         const task = {
+            id,
             title,
-            description
+            description,
+            creationDate: date.format('MMMM Do YYYY, h:mm:ss a')
         };
 
-        tasksOp.addTask(task);
+        if (!tasksOp.addTask(task)) res.status(500);
 
-        res.send();
+        res.status(201).send(id);
+
     },
     getTasks: (req, res) =>  {
         res.send("Get tasks GET");
