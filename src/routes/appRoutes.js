@@ -1,13 +1,16 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
+
+// Controllers
 const usersController = require('../controllers/usersController');
 const tasksController = require('../controllers/tasksController');
-
-const ensureToken = require('../middlewares/ensureTokenMiddleware');
-
 const { register, processRegister, login, processLogin } = usersController;
 const { createTask, processCreateTask, getTasks, deleteTasks, completeTask } = tasksController;
+
+// Middlewares
+const ensureToken = require('../middlewares/ensureTokenMiddleware');
+
 
 
 // User Routes
