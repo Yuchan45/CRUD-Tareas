@@ -42,11 +42,11 @@ hay que agregarlas en el 'validateTaskMiddleware.js' o 'validateUserMiddleware.j
     
     Las tareas contienen:
 
-        id, titulo, descripcion, completado, fecha de creacion y fecha de actualizacion.
+        id, title, description, completed, creationDate, updatedDate
     
     Los usuarios contienen:
     
-        id, usuario, contraseña y fecha de creacion.
+        id, username, password, creationDate
 
 
 ## Aclaraciones a la hora de probar los endpoints:
