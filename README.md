@@ -39,10 +39,13 @@ hay que agregarlas en el 'validateTaskMiddleware.js' o 'validateUserMiddleware.j
 - Como patrón de diseño seguí el de "Modelo Vista y Controlador (MVC)" para una mejor prolojidad y escalabilidad.
 
 - En cuanto a la base de datos, se utilizó un JSON para almacenar las tareas y los usuarios. Dichos archivos se encuentran dentro de la carpeta 'data'.
-Las tareas contienen:
-    id, titulo, descripcion, completado, fecha de creacion y fecha de actualizacion.
-Los usuarios contienen:
-    id, usuario, contraseña y fecha de creacion.
+    Las tareas contienen:
+
+        id, titulo, descripcion, completado, fecha de creacion y fecha de actualizacion.
+    
+    Los usuarios contienen:
+    
+        id, usuario, contraseña y fecha de creacion.
 
 
 ## Aclaraciones a la hora de probar los endpoints:
