@@ -4,6 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const moment = require('moment');
 const date = moment();
 
+const { validationResult } = require('express-validator');
 const usersOp = require('../modules/usersOp');
 
 const usersController = {
@@ -12,6 +13,19 @@ const usersController = {
     },
     processRegister: (req, res) => {
         const { username, password } = req.body;
+
+        const e = validationResult(req);
+        if (!e.isEmpty()) {
+            let errorMessages = '';
+            const errors = e.mapped();
+            const keys = Object.keys(errors);
+            for(let i=0; i< keys.length; i++){
+                let key = keys[i];
+                errorMessages = errorMessages + errors[key].msg + '<br/>';
+            }
+
+            return res.status(400).send(errorMessages);
+        }
 
         const userFound = usersOp.findUserByUsername(username);
         if (userFound) return res.status(500).send("Username already taken.");

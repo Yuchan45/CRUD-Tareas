@@ -11,11 +11,12 @@ const { createTask, processCreateTask, getTasks, deleteTasks, completeTask } = t
 // Middlewares
 const ensureToken = require('../middlewares/ensureTokenMiddleware');
 const validateTask = require('../middlewares/validateTaskMiddleware');
+const validateUser = require('../middlewares/validateUserMiddleware');
 
 
 // User Routes
 router.get('/usuario', register);
-router.post('/usuario', processRegister);
+router.post('/usuario', validateUser, processRegister);
 
 router.get('/login', login);
 router.post('/login', processLogin);

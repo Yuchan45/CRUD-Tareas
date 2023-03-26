@@ -10,5 +10,17 @@
 		"username": "Key",
 		"password": "$2b$10$tXEJJD7MPteGO9IqZJ6R5O0n.cgk.eJuufD74Bl8pSOJ56.tfM3qG",
 		"creationDate": "March 26th 2023, 1:04:44 am"
+	},
+	{
+		"id": "ccf18375-d54b-47f8-977a-d7f6490b2063",
+		"username": "nancy",
+		"password": "$2b$10$cRndf5UX119POxpsAFxg7uVCTY20TaMVop7GRYUsypL/Xjy3iD1g.",
+		"creationDate": "March 26th 2023, 4:13:12 pm"
+	},
+	{
+		"id": "f03fe160-8763-4433-953e-5d272ce3eded",
+		"username": "Yutaka",
+		"password": "$2b$10$kQtV9TowS..YlUHv7mLwhessH6cQPAx7sKH.AbDXVcsj8NHj/5bDa",
+		"creationDate": "March 26th 2023, 4:15:10 pm"
 	}
 ]
