@@ -51,12 +51,19 @@ Los usuarios contienen:
 
 
 - POST al '/usuario'. El cuerpo de la solicitud debe contener de key 'username' y 'password'. Ambos campos deben estar completos para pasar la validacion.
+    ![image](https://user-images.githubusercontent.com/43625804/227809165-385f5205-b0d0-40f9-8021-6c374c5d0b55.png)
+
 
 - POST al '/login'. El cuerpo de la solicitud debe contener de key 'username' y 'password'. Ambas credenciales deben ser correctas para pasar la validacion.
+    ![image](https://user-images.githubusercontent.com/43625804/227809194-9adbccae-1b35-4ba8-8cc1-2c6b759f68f5.png)
+
 
 - GET al '/protected'. Debe contener en el header la 'key':authorization con el 'value':token. (Dicho token se obtiene al realizar el correcto 'login').
 De no hacerlo, el acceso sera denegado.
 Nota: El token tiene un tiempo de expiracion de 5 minutos.
+    ![image](https://user-images.githubusercontent.com/43625804/227809236-67421926-68e0-4e0c-bec5-77f15d19c00c.png)
+
+
 
 
 ## Dependencias:
