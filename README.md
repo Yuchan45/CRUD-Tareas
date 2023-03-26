@@ -27,10 +27,10 @@ hay que agregarlas en el 'validateTaskMiddleware.js' o 'validateUserMiddleware.j
 
 - Para testear el correcto funcionamiento del JSON Web Token (JWT), cree un endpoint de prueba el cual devuelve las tareas:
 
-http://localhost:3001/protected
-Para poder acceder a dicho endpoint, en necesario pasar por header la 'key':authorization con el 'value':token. De no hacerlo, el acceso sera denegado.
-Dicho token se obtiene al realizar el correcto 'login'.
-Nota: El token tiene un tiempo de expiracion de 5 minutos.
+    http://localhost:3001/protected
+    Para poder acceder a dicho endpoint, en necesario pasar por header la 'key':authorization con el 'value':token. De no hacerlo, el acceso sera denegado.
+    Dicho token se obtiene al realizar el correcto 'login'.
+    Nota: El token tiene un tiempo de expiracion de 5 minutos.
 
 
 ## Detalles de implementacion:
