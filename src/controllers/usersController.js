@@ -38,7 +38,7 @@ const usersController = {
     processLogin: (req, res) =>  {
         const { username, password } = req.body;
         const user = usersOp.findUserByUsername(username);
-        if (!user) return res.status(404).send("User Not Found");
+        if (!user) return res.status(200).send("Credenciales Incorrectas!");
 
         const isPwdCorrect = bcrypt.compareSync(password, user.password);
         if (isPwdCorrect) {
