@@ -2,12 +2,12 @@
 
 Se realizó la implementación de un servidor utilizando Express.js que sirve como backend para una aplicación de administración de tareas.
 
-## Instalación
-1- Clonar el repositorio de github en la carpeta deseada. Ejecutando en la terminal "git clone https://github.com/Yuchan45/CRUD-Tareas.git".
+## Instalación y ejecución
+1- Abrir la terminal en la carpeta donde se desea instalar el proyecto y ejecutar el comando: "git clone https://github.com/Yuchan45/CRUD-Tareas.git".
 
-2- Ejecutar el comando "npm install" dentro de la carpeta creada para instalar todas la dependencias.
+2- Ingresar en la carpeta que se creó y ejecutar el comando "npm install" para instalar todas la dependencias.
 
-3- Para iniciar el programa, ejecutar el comando "npm run dev" (nodemon) o "npm start".
+3- Para iniciar el programa, ejecutar el comando "npm run dev" (nodemon) o "npm start". (NOTA: El servidor corre en el puerto 3001, asi que verificar que dicho puerto esté libre).
 
 
 ## Algunas aclaraciones
