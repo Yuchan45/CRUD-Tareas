@@ -9,7 +9,7 @@ const { register, processRegister, login, processLogin } = usersController;
 const { createTask, processCreateTask, getTasks, deleteTasks, completeTask } = tasksController;
 
 // Middlewares
-const ensureToken = require('../middlewares/ensureTokenMiddleware');
+const validateToken = require('../middlewares/validateTokenMiddleware');
 const validateTask = require('../middlewares/validateTaskMiddleware');
 const validateUser = require('../middlewares/validateUserMiddleware');
 
@@ -22,20 +22,7 @@ router.get('/login', login);
 router.post('/login', processLogin);
 
 // Protected Route for test
-router.get('/protected', ensureToken, (req, res) => {
-    jwt.verify(req.token, 'my_secret_key', (err, data) => {
-        if (err) {
-            res.sendStatus(403);
-        } else {
-            res.json({
-                text: 'protected',
-                data
-            })
-        }
-    });
-});
-
-
+router.get('/protected', validateToken, getTasks); // Muestra las tareas (solo en caso de tener acceso).
 
 // Tasks Routes
 router.get('/task', createTask);

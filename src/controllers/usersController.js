@@ -38,13 +38,8 @@ const usersController = {
         }
         if (!usersOp.addUser(user)) return res.status(500).send("Error al crear el usuario.");
 
-        jwt.sign({user}, 'my_secret_key', (err, token) => {
-            return res.json({
-                token
-            });
-        });
+        return res.status(201).send("Usuario creado exitosamente!");
 
-        // return res.status(201).send("Usuario creado exitosamente!");
     },
     login: (req, res) => {
         res.status(200).render('./users/loginForm.ejs');
@@ -52,13 +47,22 @@ const usersController = {
     processLogin: (req, res) =>  {
         const { username, password } = req.body;
         const user = usersOp.findUserByUsername(username);
-        if (!user) return res.status(200).send("Credenciales Incorrectas!");
+        if (!user) return res.status(400).send("Credenciales Incorrectas!");
 
         const isPwdCorrect = bcrypt.compareSync(password, user.password);
+
         if (isPwdCorrect) {
-            return res.status(200).send("Usuario Logueado Exitosamente!");
+            const userToLogin = user;
+            delete userToLogin.password; // Borramos el atributo password por temas de seguridad.
+            const accessToken = jwt.sign({userToLogin}, 'my_secret_key', {expiresIn: '5m'});
+
+            return res.status(200).header('authorization', accessToken).json({
+                message: 'Usuario autenticado!',
+                token: accessToken
+            });
+            //return res.status(200).send("Usuario Logueado Exitosamente!" + '<br/>' + "AccessToken: <br/>" + JSON.stringify(accessToken));
         } else {
-            return res.status(200).send("Credenciales Incorrectas!");
+            return res.status(400).send("Credenciales Incorrectas!");
         }
     }
 

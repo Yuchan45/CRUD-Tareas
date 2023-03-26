@@ -50,14 +50,14 @@ const tasksController = {
         const id = req.params.id;
         if (!tasksOp.removeTask(id)) return res.status(500).send("Error al eliminar tarea.");
 
-        return res.status(200).send("tarea removida exitosamente.");
+        return res.status(200).send("Tarea removida exitosamente.");
     },
     completeTask: (req, res) => {
         const id = req.params.id;
 
         if (!tasksOp.setTaskToCompleted(id)) return res.status(404).send("Task Not Found.");
 
-        return res.status(200).send("Task set to completed successfully.");
+        return res.status(200).send("La tarea ha sido marcada como 'completada'.");
     }
 };
 
