@@ -9,7 +9,7 @@ const app = express();
 const appRoutes = require('./src/routes/appRoutes');
 
 // Configs
-const publicPath = path.resolve(__dirname, '../public');
+const publicPath = path.resolve(__dirname + '/public');
 app.use(express.static(publicPath));
 app.set('port', process.env.PORT || 3001);
 
