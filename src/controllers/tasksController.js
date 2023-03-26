@@ -15,15 +15,8 @@ const tasksController = {
 
         const e = validationResult(req);
         if (!e.isEmpty()) {
-            let errorMessages = '';
             const errors = e.mapped();
-            const keys = Object.keys(errors);
-            for(let i=0; i< keys.length; i++){
-                let key = keys[i];
-                errorMessages = errorMessages + '<br/>' + errors[key].msg;
-            }
-
-            return res.status(400).send(errorMessages);
+            return res.status(400).json({message: "Error al crear tarea!", errors});
         }
 
         const task = {
@@ -35,29 +28,29 @@ const tasksController = {
             updatedDate:  date.format('MMMM Do YYYY, h:mm:ss a')
         };
 
-        if (!tasksOp.addTask(task)) return res.status(500).send("Error al crear la tarea.");
+        if (!tasksOp.addTask(task)) return res.status(500).json({message: "Error al crear la tarea."});
 
-        return res.status(201).send("ID: " + id);
+        return res.status(201).json({id: id});
 
     },
     getTasks: (req, res) =>  {
         const tasks = tasksOp.readTasks();
-        if (!tasks) return res.status(500).send("Error al cargar la tareas.");
+        if (!tasks) return res.status(500).json({message: "Error al cargar la tareas."});
 
         return res.status(200).send(tasks);
     },
     deleteTasks: (req, res) => {
         const id = req.params.id;
-        if (!tasksOp.removeTask(id)) return res.status(500).send("Error al eliminar tarea.");
+        if (!tasksOp.removeTask(id)) return res.status(500).json({message: "Error al eliminar tarea."});
 
-        return res.status(200).send("Tarea removida exitosamente.");
+        return res.status(200).json({message: "Tarea removida exitosamente."});
     },
     completeTask: (req, res) => {
         const id = req.params.id;
 
-        if (!tasksOp.setTaskToCompleted(id)) return res.status(404).send("Task Not Found.");
+        if (!tasksOp.setTaskToCompleted(id)) return res.status(404).json({message: "Task Not Found."});
 
-        return res.status(200).send("La tarea ha sido marcada como 'completada'.");
+        return res.status(200).json({message: "La tarea ha sido marcada como 'completada'."});
     }
 };
 

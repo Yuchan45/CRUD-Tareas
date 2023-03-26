@@ -16,19 +16,12 @@ const usersController = {
 
         const e = validationResult(req);
         if (!e.isEmpty()) {
-            let errorMessages = '';
             const errors = e.mapped();
-            const keys = Object.keys(errors);
-            for(let i=0; i< keys.length; i++){
-                let key = keys[i];
-                errorMessages = errorMessages + errors[key].msg + '<br/>';
-            }
-
-            return res.status(400).send(errorMessages);
+            return res.status(400).json({message: "Error al crear usuario!", errors});
         }
 
         const userFound = usersOp.findUserByUsername(username);
-        if (userFound) return res.status(500).send("Username already taken.");
+        if (userFound) return res.status(500).json({message: "Username already taken."});
 
         const user = {
             id: uuidv4(),
@@ -36,9 +29,9 @@ const usersController = {
             password: bcrypt.hashSync(password, 10),
             creationDate: date.format('MMMM Do YYYY, h:mm:ss a')
         }
-        if (!usersOp.addUser(user)) return res.status(500).send("Error al crear el usuario.");
+        if (!usersOp.addUser(user)) return res.status(500).json({message: "Error al crear el usuario."});
 
-        return res.status(201).send("Usuario creado exitosamente!");
+        return res.status(201).json({message: "Usuario creado exitosamente!"});
 
     },
     login: (req, res) => {
@@ -47,7 +40,7 @@ const usersController = {
     processLogin: (req, res) =>  {
         const { username, password } = req.body;
         const user = usersOp.findUserByUsername(username);
-        if (!user) return res.status(400).send("Credenciales Incorrectas!");
+        if (!user) return res.status(400).json({message: "Credenciales Incorrectas!"});
 
         const isPwdCorrect = bcrypt.compareSync(password, user.password);
 
@@ -60,9 +53,9 @@ const usersController = {
                 message: 'Usuario autenticado!',
                 token: accessToken
             });
-            //return res.status(200).send("Usuario Logueado Exitosamente!" + '<br/>' + "AccessToken: <br/>" + JSON.stringify(accessToken));
+
         } else {
-            return res.status(400).send("Credenciales Incorrectas!");
+            return res.status(400).json({message: "Credenciales Incorrectas!"});
         }
     }
 
