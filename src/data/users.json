@@ -1,1 +1,20 @@
-[]
+[
+	{
+		"id": "f90fae86-f210-4ea4-bcd1-b5ea3c6a2e8d",
+		"username": "yuchan",
+		"password": "$2b$10$2afd8//w4DS71MhSDPf7YOZ1Duq3rSgnnpf5n1mME34G9d9gVKMtK",
+		"creationDate": "March 26th 2023, 12:08:06 am"
+	},
+	{
+		"id": "15769a5a-cf3b-4812-956a-dd5a4380cd9c",
+		"username": "key",
+		"password": "$2b$10$VXzveY05OD8trGy.TfYJROVuxOWcPKYSQNQji6apqTIA2lnZ6oPYK",
+		"creationDate": "March 26th 2023, 12:08:49 am"
+	},
+	{
+		"id": "2cab8f6c-4b6a-4cf9-bcce-cac6b7f8fcef",
+		"username": "nancy",
+		"password": "$2b$10$kgk3iPb9p3ySrt209HerqumPGBXqJtG7rjRV2asLKUgJ0F20K5a7y",
+		"creationDate": "March 26th 2023, 12:09:36 am"
+	}
+]

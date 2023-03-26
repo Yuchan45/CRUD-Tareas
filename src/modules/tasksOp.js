@@ -25,7 +25,7 @@ const tasksOp = {
     },
 
     addTask: function(task) {
-        // Recibe una tarea y lo agrega al array de tareas. Devuelve 0 en caso de exito y -1 en caso de error.
+        // Recibe una tarea y lo agrega al array de tareas. Devuelve true en caso de exito y false en caso de error.
         if (!task) return false;
         
         const tasksArray = this.readTasks(this.file);
@@ -38,7 +38,7 @@ const tasksOp = {
     removeTask: function(id) {
         // Recibe id. Elimina la tarea del archivo cuyo id coincide con el pasado por parametro.
         if (!id) return false;
-        let tasksJSON = JSON.parse(fs.readFileSync(this.file));
+        let tasksJSON = this.readTasks();
         const tasks = tasksJSON.filter(task => task.id !== id);
 
         if (!this.writeTasks(tasks)) return false;
