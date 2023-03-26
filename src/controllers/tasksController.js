@@ -2,6 +2,7 @@ const { v4: uuidv4 } = require('uuid');
 const moment = require('moment');
 const date = moment();
 
+const { validationResult } = require('express-validator');
 const tasksOp = require('../modules/tasksOp');
 
 const tasksController = {
@@ -11,6 +12,19 @@ const tasksController = {
     processCreateTask: (req, res) => {
         const { title, description } = req.body;
         const id = uuidv4();
+
+        const e = validationResult(req);
+        if (!e.isEmpty()) {
+            let errorMessages = '';
+            const errors = e.mapped();
+            const keys = Object.keys(errors);
+            for(let i=0; i< keys.length; i++){
+                let key = keys[i];
+                errorMessages = errorMessages + '<br/>' + errors[key].msg;
+            }
+
+            return res.status(400).send(errorMessages);
+        }
 
         const task = {
             id,

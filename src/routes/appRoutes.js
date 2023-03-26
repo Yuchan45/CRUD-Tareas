@@ -10,7 +10,7 @@ const { createTask, processCreateTask, getTasks, deleteTasks, completeTask } = t
 
 // Middlewares
 const ensureToken = require('../middlewares/ensureTokenMiddleware');
-
+const validateTask = require('../middlewares/validateTaskMiddleware');
 
 
 // User Routes
@@ -38,7 +38,7 @@ router.get('/protected', ensureToken, (req, res) => {
 
 // Tasks Routes
 router.get('/task', createTask);
-router.post('/task', processCreateTask);
+router.post('/task', validateTask, processCreateTask);
 
 router.get('/tasks', getTasks);
 

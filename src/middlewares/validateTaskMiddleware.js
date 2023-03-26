@@ -2,13 +2,13 @@
 const { body } = require('express-validator');
 
 // Validaciones
-const validateTasks = [
+const validateTask = [
     body('title')
-        .notEmpty().withMessage('El titulo de la tarea no puede estar vacio!'),
+        .notEmpty().withMessage('El título de la tarea no puede estar vacío!').bail(),
 
     body('description')
-        .notEmpty().withMessage('La descripcion de la tarea no puede estar vacio!'),
+        .notEmpty().withMessage('La descripción de la tarea no puede estar vacío!').bail(),
 
 ];
 
-module.exports = validateTasks;
+module.exports = validateTask;
