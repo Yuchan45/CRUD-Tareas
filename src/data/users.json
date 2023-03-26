@@ -1,26 +1,14 @@
 [
 	{
-		"id": "4e31f560-2cc1-43bd-9363-e0257af42e9d",
-		"username": "Yuchan",
-		"password": "$2b$10$xYT5OAFWDFcoEsplRypumOdDYcloRFYgGf04uUjf4vVs2mR.lkC2a",
-		"creationDate": "March 26th 2023, 1:03:58 am"
+		"id": "ea74426c-7ad2-4a54-864a-5a3a89aadee7",
+		"username": "Tomas Yu Nakasone",
+		"password": "$2b$10$sLgDxR1WJ5CgLM9I3wdJneSI6or5Vr5yUHI5YhSAmllo/HNlmFCK2",
+		"creationDate": "March 26th 2023, 5:45:35 pm"
 	},
 	{
-		"id": "7cd0a584-4745-4411-bf0a-530f3e37830e",
-		"username": "Key",
-		"password": "$2b$10$tXEJJD7MPteGO9IqZJ6R5O0n.cgk.eJuufD74Bl8pSOJ56.tfM3qG",
-		"creationDate": "March 26th 2023, 1:04:44 am"
-	},
-	{
-		"id": "ccf18375-d54b-47f8-977a-d7f6490b2063",
-		"username": "nancy",
-		"password": "$2b$10$cRndf5UX119POxpsAFxg7uVCTY20TaMVop7GRYUsypL/Xjy3iD1g.",
-		"creationDate": "March 26th 2023, 4:13:12 pm"
-	},
-	{
-		"id": "f03fe160-8763-4433-953e-5d272ce3eded",
-		"username": "Yutaka",
-		"password": "$2b$10$kQtV9TowS..YlUHv7mLwhessH6cQPAx7sKH.AbDXVcsj8NHj/5bDa",
-		"creationDate": "March 26th 2023, 4:15:10 pm"
+		"id": "238f08ea-c50d-47d3-bcd0-73178f233b83",
+		"username": "Nicolas Key Nakasone",
+		"password": "$2b$10$AaJ2ByeiPEb0ncpCgfqNJOf/5qEaZJeWPPSiN.d50Zqz48NyIDRRW",
+		"creationDate": "March 26th 2023, 5:46:28 pm"
 	}
 ]

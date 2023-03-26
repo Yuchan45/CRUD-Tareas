@@ -30,7 +30,7 @@ const tasksController = {
 
         if (!tasksOp.addTask(task)) return res.status(500).json({message: "Error al crear la tarea."});
 
-        return res.status(201).json({id: id});
+        return res.status(201).json({message: "Tarea creada exitosamente!", id: id});
 
     },
     getTasks: (req, res) =>  {
@@ -50,7 +50,7 @@ const tasksController = {
 
         if (!tasksOp.setTaskToCompleted(id)) return res.status(404).json({message: "Task Not Found."});
 
-        return res.status(200).json({message: "La tarea ha sido marcada como 'completada'."});
+        return res.status(200).json({message: "La tarea ha sido marcada como 'completada' de forma exitosa!"});
     }
 };
 
