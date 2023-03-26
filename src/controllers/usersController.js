@@ -32,8 +32,10 @@ const usersController = {
 
         // return res.status(201).send("Usuario creado exitosamente!");
     },
-
-    login: (req, res) =>  {
+    login: (req, res) => {
+        res.status(200).render('./users/loginForm.ejs');
+    },
+    processLogin: (req, res) =>  {
         const { username, password } = req.body;
         const user = usersOp.findUserByUsername(username);
         if (!user) return res.status(404).send("User Not Found");

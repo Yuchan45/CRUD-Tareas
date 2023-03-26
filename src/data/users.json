@@ -16,5 +16,11 @@
 		"username": "nancy",
 		"password": "$2b$10$kgk3iPb9p3ySrt209HerqumPGBXqJtG7rjRV2asLKUgJ0F20K5a7y",
 		"creationDate": "March 26th 2023, 12:09:36 am"
+	},
+	{
+		"id": "801ec20f-fc08-4c29-975e-f9ca75fb4f2c",
+		"username": "Yutaka",
+		"password": "$2b$10$IkVQKSohqQ5HIcfwfjg/jeMlrGRPm8/RpJg/VIZ3yYg2Xv.S/w//a",
+		"creationDate": "March 26th 2023, 12:52:00 am"
 	}
 ]
