@@ -6,14 +6,15 @@ const usersOp = {
 
     readUsers: function() {
         // Lee el archivo de usuarios y devuelve el array de objetos 'usuario' en este.
-        if (!fs.existsSync(this.file)) this.writeUsers([]);
+        // En caso de no existir dicho archivo, lo crea.
 
+        if (!fs.existsSync(this.file)) this.writeUsers([]);
         let usersJSON = JSON.parse(fs.readFileSync(this.file));
         return usersJSON;
     },
 
     writeUsers: function(array) {
-        // Recibe un array de usuarios. Escribe el array en el archivo.
+        // Recibe un array de usuarios. Escribe el array en el archivo de usuarios.
         const dataJSON = JSON.stringify(array, null, "\t");
         fs.writeFileSync(this.file, dataJSON, 'utf-8', function(error) {
             if (error) throw error;
@@ -34,7 +35,8 @@ const usersOp = {
     },
 
     findUserByUsername: function(username) {
-        // Recibe un username. Busca en el archivo de usuarios si este existe. En caso de existir, devuelve el usuario.
+        // Recibe un username. Busca en el archivo de usuarios si este existe. En caso de existir, devuelve el usuario. 
+        // Caso contrario devuelve false.
         let usersJSON = this.readUsers();
         const user = usersJSON.find(user => user.username === username);
         if (!user) return false;

@@ -1,5 +1,4 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const router = express.Router();
 
 // Controllers
@@ -15,17 +14,17 @@ const validateUser = require('../middlewares/validateUserMiddleware');
 
 
 // User Routes
-router.get('/usuario', register);
+router.get('/usuario', register);  // Formulario de registro.
 router.post('/usuario', validateUser, processRegister);
 
-router.get('/login', login);
+router.get('/login', login); // Formulario de log in.
 router.post('/login', processLogin);
 
 // Protected Route for test
 router.get('/protected', validateToken, getTasks); // Muestra las tareas (solo en caso de tener acceso).
 
 // Tasks Routes
-router.get('/task', createTask);
+router.get('/task', createTask); // Formulario de 'crear tarea'.
 router.post('/task', validateTask, processCreateTask);
 
 router.get('/tasks', getTasks);

@@ -3,15 +3,19 @@ const bcrypt = require('bcrypt');
 const { v4: uuidv4 } = require('uuid');
 const moment = require('moment');
 const date = moment();
-
 const { validationResult } = require('express-validator');
+
 const usersOp = require('../modules/usersOp');
 
 const usersController = {
     register: (req, res) => {
+        // Te lleva a la vista del register Form.
         res.status(200).render('./users/registerForm.ejs');
     },
     processRegister: (req, res) => {
+        // Realiza la validacion del registro de usuario. 
+        // Devuelve mensaje de exito en caso de exito, o mensaje de error en caso contrario.
+
         const { username, password } = req.body;
 
         const e = validationResult(req);
@@ -21,7 +25,7 @@ const usersController = {
         }
 
         const userFound = usersOp.findUserByUsername(username);
-        if (userFound) return res.status(500).json({message: "Username already taken."});
+        if (userFound) return res.status(409).json({message: "Error, usuario ya registrado."});
 
         const user = {
             id: uuidv4(),
@@ -35,9 +39,13 @@ const usersController = {
 
     },
     login: (req, res) => {
+        // Te lleva a la vista del login Form.
         res.status(200).render('./users/loginForm.ejs');
     },
     processLogin: (req, res) =>  {
+        // Valida las credenciales del log in.
+        // Devuelve mensaje de exito o de error.
+
         const { username, password } = req.body;
         const user = usersOp.findUserByUsername(username);
         if (!user) return res.status(400).json({message: "Credenciales Incorrectas!"});
