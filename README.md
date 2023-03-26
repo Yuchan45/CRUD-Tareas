@@ -14,11 +14,11 @@ Se realizo la implementacion de un servidor utilizando Express.js que sirve como
 - Para simular las diferentes requests de un front, utilice la herramienta "Postman". Sin embargo, tambien hice unos pequeños formularios
 para realizar algunas pruebas. Estas se pueden acceder mediante GET en los siguientes endpoints.
 
-"Crear Tareas"   --->  http://localhost:3001/task
+    "Crear Tareas"   --->  http://localhost:3001/task
 
-"Registro"       --->  http://localhost:3001/usuario
+    "Registro"       --->  http://localhost:3001/usuario
 
-"Log In"         --->  http://localhost:3001/login
+    "Log In"         --->  http://localhost:3001/login
 
 
 - Como en el enunciado no estaban especificadas las validaciones a la hora de registrar un usuario o de crear una tarea, me tome la libertad de
