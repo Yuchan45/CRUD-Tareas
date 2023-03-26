@@ -7,7 +7,10 @@ const date = moment();
 const usersOp = require('../modules/usersOp');
 
 const usersController = {
-    createUser: (req, res) => {
+    register: (req, res) => {
+        res.status(200).render('./users/registerForm.ejs');
+    },
+    processRegister: (req, res) => {
         const { username, password } = req.body;
 
         const userFound = usersOp.findUserByUsername(username);

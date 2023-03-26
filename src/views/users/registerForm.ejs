@@ -7,24 +7,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/createTaskForm.css">
-    <title>Create Task!</title>
+    <link rel="stylesheet" href="/css/registerForm.css">
+    <title>Register</title>
 </head>
 <body>
     <div class="main-container">
-        <h1>Crear tarea</h1>
-        <form id="formulario" action="/task" method="POST">
+        <h1>Regístrate!</h1>
+        <form id="formulario" action="/usuario" method="POST">
             <div class="input-block">
-                <label for="title">Tarea</label>
-                <input name="title" type="text" placeholder="Nombre de la tarea">
+                <label for="username">Username</label>
+                <input name="username" type="text" placeholder="Username">
             </div>
 
             <div class="input-block">
-                <label for="description">Descripción</label>
-                <textarea name="description" id="description" cols="30" rows="10" placeholder="Descripcion..."></textarea>
+                <label for="password">Password</label>
+                <input name="password" type="password" placeholder="Password">
             </div>
             
-            <button type="submit">Crear tarea</button>
+            <button type="submit">Register</button>
         </form>
     </div>
 </body>

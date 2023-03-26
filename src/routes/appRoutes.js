@@ -6,12 +6,13 @@ const tasksController = require('../controllers/tasksController');
 
 const ensureToken = require('../middlewares/ensureTokenMiddleware');
 
-const { createUser, login } = usersController;
+const { register, processRegister, login } = usersController;
 const { createTask, processCreateTask, getTasks, deleteTasks, completeTask } = tasksController;
 
 
 // User Routes
-router.post('/usuario', createUser);
+router.get('/usuario', register);
+router.post('/usuario', processRegister);
 router.post('/login', login);
 
 // Protected Route for test
