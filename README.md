@@ -47,6 +47,8 @@ Los usuarios contienen:
 
 ## Aclaraciones a la hora de probar los endpoints:
 - POST al '/task'. El cuerpo de la solicitud debe contener de key 'title' y 'description'. Ambos campos deben estar completos para pasar la validacion.
+    ![image](https://user-images.githubusercontent.com/43625804/227809105-985c2127-28d9-434e-82b8-38d64a0a1a85.png)
+
 
 - POST al '/usuario'. El cuerpo de la solicitud debe contener de key 'username' y 'password'. Ambos campos deben estar completos para pasar la validacion.
 
