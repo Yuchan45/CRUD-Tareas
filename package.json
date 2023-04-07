@@ -18,6 +18,8 @@
     "jsonwebtoken": "^9.0.0",
     "method-override": "^3.0.0",
     "moment": "^2.29.4",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
