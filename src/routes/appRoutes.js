@@ -12,13 +12,11 @@ const validateToken = require('../middlewares/validateTokenMiddleware');
 const validateTask = require('../middlewares/validateTaskMiddleware');
 const validateUser = require('../middlewares/validateUserMiddleware');
 
-
-// User Routes
 /**
  * @swagger
  * components:
  *  schemas:
- *      User:
+ *      UserMock:
  *          type: object
  *          properties:
  *              name:
@@ -37,9 +35,46 @@ const validateUser = require('../middlewares/validateUserMiddleware');
  *              name: Tomas Yu
  *              age: 23
  *              email: yu.nakasone@gmail.com
- *              
+ * 
+ *      User:
+ *          type: object
+ *          properties:
+ *              username:
+ *                  type: string
+ *                  description: Username
+ *              password: 
+ *                  type: string
+ *                  description: Password
+ *          required:
+ *              - username
+ *              - password
+ *          example:
+ *              username: Tomas Yu Nakasone
+ *              password: Hola123!
  */
+
+
+// User Routes
 router.get('/usuario', register);
+/**
+ * @swagger
+ * /usuario:
+ *  post:
+ *      summary: Creates a new user.
+ *      tags: [User]
+ *      requestBody:
+ *          required: true
+ *          content: 
+ *              application/json:
+ *                  schema: 
+ *                      type: object
+ *                      $ref: '#/components/schemas/User'
+ *      responses:
+ *          200:
+ *              description: New user created!
+ *      
+ * 
+ */
 router.post('/usuario', validateUser, processRegister);
 
 router.get('/login', login); 
