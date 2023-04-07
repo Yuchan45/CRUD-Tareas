@@ -14,10 +14,35 @@ const validateUser = require('../middlewares/validateUserMiddleware');
 
 
 // User Routes
-router.get('/usuario', register);  // Formulario de registro.
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *      User:
+ *          type: object
+ *          properties:
+ *              name:
+ *                  type: string
+ *                  description: The username
+ *              age: 
+ *                  type: integer
+ *                  description: Users age
+ *              email:
+ *                  type: string
+ *                  description: Users email
+ *          required:
+ *              - name
+ *              - email
+ *          example:
+ *              name: Tomas Yu
+ *              age: 23
+ *              email: yu.nakasone@gmail.com
+ *              
+ */
+router.get('/usuario', register);
 router.post('/usuario', validateUser, processRegister);
 
-router.get('/login', login); // Formulario de log in.
+router.get('/login', login); 
 router.post('/login', processLogin);
 
 // Protected Route for test
