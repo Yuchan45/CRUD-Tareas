@@ -1,13 +1,5 @@
 [
 	{
-		"id": "01cdc3c1-ae78-4b0e-8907-7fcd2b41b46e",
-		"title": "Tarea 2",
-		"description": "Descripcion 2",
-		"completed": false,
-		"creationDate": "March 26th 2023, 7:59:01 pm",
-		"updatedDate": "March 26th 2023, 7:59:01 pm"
-	},
-	{
 		"id": "b5ed9870-a9e7-4dd1-b668-4a5599842400",
 		"title": "Tarea 4",
 		"description": "Descripcion 4",
@@ -38,5 +30,13 @@
 		"completed": true,
 		"creationDate": "March 26th 2023, 7:59:16 pm",
 		"updatedDate": "March 26th 2023, 8:01:20 pm"
+	},
+	{
+		"id": "01cdc3c1-ae78-4b0e-8907-7fcd2b41b46e",
+		"title": "Tarea 2",
+		"description": "Descripcion 2",
+		"completed": true,
+		"creationDate": "March 26th 2023, 7:59:01 pm",
+		"updatedDate": "April 10th 2023, 4:35:27 pm"
 	}
 ]

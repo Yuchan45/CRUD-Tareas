@@ -96,9 +96,6 @@ const validateUser = require('../middlewares/validateUserMiddleware');
  *              content: 
  *                  'text/html':
  *                  schema:
- *                      
- *                      
- * 
  */
 router.get('/usuario', register);
 /**
@@ -124,7 +121,9 @@ router.get('/usuario', register);
  */
 router.post('/usuario', validateUser, processRegister);
 
-router.get('/login', login); 
+router.get('/login', login);
+
+
 router.post('/login', processLogin);
 
 // Protected Route for test
@@ -157,24 +156,21 @@ router.delete('/task/:id', deleteTasks);
 /**
  * @swagger
  * /task/{id}:
- * put:
- *     summary: Sets the specif1ied task to state 'completed'
- *     tags: [Tasks]
- *     parameters:
- *         - in: path
- *         name: id
- *         schema: 
- *             type: string
- *             required: true
- *             description: The task id
- *     responses:
- *         200:
- *             description: Task set to 'completed' successfully!
- *             content: 
- *                 application/json:
- *                     schema:
- *                         type: object
- *                         $ref: '#/components/schemas/Task'
+ *  put:
+ *      summary: Sets task to 'completed'
+ *      tags: [Tasks]
+ *      parameters:
+ *          - in: path
+ *            name: id
+ *            schema:
+ *              type: string
+ *            required: true
+ *            description: The user id
+ *      responses:
+ *          201:
+ *              description: La tarea ha sido marcada como 'completada' de forma exitosa!
+ *          404:
+ *              description: Task Not Found
  */
 router.put('/task/:id', completeTask);
 
